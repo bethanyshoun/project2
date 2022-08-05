@@ -1,3 +1,3 @@
-DROP DATABASE IF EXISTS ; 
+DROP DATABASE IF EXISTS wordraffle; 
 
-CREATE DATABASE just_tech_news_db;
+CREATE DATABASE wordraffle;
