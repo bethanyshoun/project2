@@ -43,4 +43,3 @@ sequelize.sync({ force: false }).then(() => {
 console.log ("hello!");
 console.log ("hi");
 console.log ("hey");
-
