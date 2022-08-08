@@ -11,7 +11,7 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const sess = {
 //***Need to add process.env.MY_SECRET to connection.js */
-  secret: 'secretcode',
+  secret: process.env.MY_SECRET,
   cookie: {},
   resave: false,
   saveUninitialized: true,
@@ -38,8 +38,3 @@ app.use(require('./controllers/'));
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
-
-
-console.log ("hello!");
-console.log ("hi");
-console.log ("hey");
