@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { Post, User, Comment, Vote } = require('../../models');
+const { Post, User, Comment, Like} = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // get all users
@@ -9,10 +9,9 @@ router.get('/', (req, res) => {
   Post.findAll({
     attributes: [
       'id',
-      'post_url',
       'title',
       'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+      [sequelize.literal('(SELECT COUNT(*) FROM like WHERE post.id = like.post_id)'), 'like_count']
     ],
     include: [
       {
@@ -43,10 +42,9 @@ router.get('/:id', (req, res) => {
     },
     attributes: [
       'id',
-      'post_url',
       'title',
       'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE post.id = vote.post_id)'), 'vote_count']
+      [sequelize.literal('(SELECT COUNT(*) FROM like WHERE post.id = like.post_id)'), 'like_count']
     ],
     include: [
       {
@@ -77,10 +75,9 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', withAuth, (req, res) => {
-  // expects {title: 'Title of Comment', post_url: '', user_id: ''}
+  // expects {title: 'Title of Comment', user_id: ''}
   Post.create({
     title: req.body.title,
-    post_url: req.body.post_url,
     user_id: req.session.user_id
   })
     .then(dbPostData => res.json(dbPostData))
@@ -90,10 +87,10 @@ router.post('/', withAuth, (req, res) => {
     });
 });
 
-router.put('/upvote', withAuth, (req, res) => {
+router.put('/like', withAuth, (req, res) => {
   // custom static method created in models/Post.js
-  Post.upvote({ ...req.body, user_id: req.session.user_id }, { Vote, Comment, User })
-    .then(updatedVoteData => res.json(updatedVoteData))
+  Post.like({ ...req.body, user_id: req.session.user_id }, { Like, Comment, User })
+    .then(updatedLikeData => res.json(updatedLikeData))
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
