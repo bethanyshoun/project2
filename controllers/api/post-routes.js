@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { Post, User, Comment, Like} = require('../../models');
+const { Post, User, Comment, Heart} = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // get all users
@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
       'id',
       'title',
       'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM like WHERE post.id = like.post_id)'), 'like_count']
+      [sequelize.literal('(SELECT COUNT(*) FROM heart WHERE post.id = heart.post_id)'), 'heart_count']
     ],
     include: [
       {
@@ -44,7 +44,7 @@ router.get('/:id', (req, res) => {
       'id',
       'title',
       'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM like WHERE post.id = like.post_id)'), 'like_count']
+      [sequelize.literal('(SELECT COUNT(*) FROM heart WHERE post.id = heart.post_id)'), 'heart_count']
     ],
     include: [
       {
@@ -87,10 +87,10 @@ router.post('/', withAuth, (req, res) => {
     });
 });
 
-router.put('/like', withAuth, (req, res) => {
+router.put('/heart', withAuth, (req, res) => {
   // custom static method created in models/Post.js
-  Post.like({ ...req.body, user_id: req.session.user_id }, { Like, Comment, User })
-    .then(updatedLikeData => res.json(updatedLikeData))
+  Post.heart({ ...req.body, user_id: req.session.user_id }, { Heart, Comment, User })
+    .then(updatedHeartData => res.json(updatedHeartData))
     .catch(err => {
       console.log(err);
       res.status(500).json(err);

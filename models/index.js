@@ -1,7 +1,7 @@
 // import all models
 const Post = require('./Post');
 const User = require('./User');
-const Like = require('./Like');
+const Heart = require('./Heart');
 const Comment = require('./Comment');
 const RandomWord = require('./RandomWord')
 
@@ -16,35 +16,35 @@ Post.belongsTo(User, {
 });
 
 User.belongsToMany(Post, {
-  through: Like,
-  as: 'liked_posts',
+  through: Heart,
+  as: 'hearted_posts',
 
   foreignKey: 'user_id',
   onDelete: 'SET NULL'
 });
 
 Post.belongsToMany(User, {
-  through: Like,
-  as: 'liked_posts',
+  through: Heart,
+  as: 'hearted_posts',
   foreignKey: 'post_id',
   onDelete: 'SET NULL'
 });
 
-Like.belongsTo(User, {
+Heart.belongsTo(User, {
   foreignKey: 'user_id',
   onDelete: 'SET NULL'
 });
 
-Like.belongsTo(Post, {
+Heart.belongsTo(Post, {
   foreignKey: 'post_id',
   onDelete: 'SET NULL'
 });
 
-User.hasMany(Like, {
+User.hasMany(Heart, {
   foreignKey: 'user_id'
 });
 
-Post.hasMany(Like, {
+Post.hasMany(Heart, {
   foreignKey: 'post_id'
 });
 
@@ -67,4 +67,4 @@ Post.hasMany(Comment, {
   foreignKey: 'post_id'
 });
 
-module.exports = { User, Post, Comment, RandomWord };
+module.exports = { User, Post, Comment, Heart, RandomWord };
