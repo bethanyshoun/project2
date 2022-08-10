@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Post, User, Comment, Heart } = require('../models');
+const { Post, User, Comment, Heart, RandomWord, } = require('../models');
 const withAuth = require('../utils/auth');
 
 // get all posts for dashboard
@@ -84,4 +84,34 @@ router.get('/edit/:id', withAuth, (req, res) => {
     });
 });
 
+
+router.get('/word-routes', (req, res) => {
+  RandomWord.findOne ({
+    where: {
+      id: req.params.id
+    },
+    include: [
+      {
+        model: RandomWord,
+        attributes: ['id', 'text']
+      }
+    ]
+  })
+  .then(dbUserData => {
+    if (!dbUserData) {
+      res.status(404).json({ message: 'No text found with this id' });
+      return;
+    }
+    res.json(dbUserData);
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
+});
+
+
+
+
 module.exports = router;
+
