@@ -3,36 +3,100 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  {{!-- <script src="https://cdn.tailwindcss.com"></script> --}}
-  <link rel="stylesheet" href="../../public/stylesheets/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="stylesheet/style.css">
   <title>Word Raffle</title>
 </head>
 
 <body>
-  <div class="wrapper">
-    <header>
-      <h1> Word Raffle</h1>
-      <nav>
-        {{#if loggedIn}}
-        <a href="/dashboard">dashboard</a>
-        <button id="logout" class="btn-no-style">logout</button>
-        {{else}}
-        <a href="/login">Login</a>
-        {{/if}}
-      </nav>
-    </header>
-    <main>
+
+  <section class="hero is-success is-fullheight">
+    <!-- Hero head: will stick at the top -->
+    <div class="hero-head">
+      <header class="navbar">
+        <div class="container">
+          <div class="navbar-brand">
+            <span class="navbar-burger" data-target="navbarMenuHeroC">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </div>
+          <div id="navbarMenuHeroC" class="navbar-menu p-6">
+            <div class="navbar-end">
+              <a class="navbar-item is-active">
+                <a href="#About">About</a>
+              </a>
+              <a class="navbar-item">
+                <a href="#Login">Login</a>
+              </a>
+              <a class="navbar-item">
+                <a href="#Creator">Creators</a>
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+    </div>
+
+    <!-- Hero content: will be in the middle -->
+    <div class="hero-body">
+      <div class="container has-text-centered  my-6 py-6">
+        <h1 class="title is-size-1">
+          Word Raffle
+        </h1>
+      </div>
+    </div>
+
+    <section id="About" class="section is-large section-padding-large">
+      <h2 class="title  has-text-centered">About Word Raffle</h2>
+      <p> Word Raffle is a social media platform where lyric lovers can come together and show off their skills. .</p>
+      <p> Once you are successfully logged in, click on the 'Generate Word' button and begin. A random word will
+        appear and your objective is to think of a lyric that has that random word in it and post that lyric.</p>
+      <p> Other users can 'heart' your lyric choice and also comment other lyrics with the same word.</p>
+      <p> Good luck!</p>
+    </section>
+
+    <main id="Login" class="level-item has-text-centered">
       {{{ body }}}
     </main>
-    <footer>
-      Thanks for stopping by!
-    </footer>
-  </div>
+    <div>
+      <nav>
+        {{#if loggedIn}}
+        <a href="/dashboard" class="button is-small has-addons is-centered">Back to Dashboard</a>
+        <button id="logout" class="button is-small has-addons is-centered">Logout</button>
+        {{else}}
+        <a href="/login" class="level-item has-text-centered p-6 m-6 is-size-3">Login</a>
+        {{/if}}
+      </nav>
+      {{#if loggedIn}}
+      {{/if}}
+    </div>
+    <br>
+    <br>
+    <br>
 
-  {{#if loggedIn}}
+    <section id="Creator" class="section">
+      <h2 class="title level-item has-text-centered m-6 p-6">Creators of Word Raffle</h2>
+      <h3 class="subtitle level-item has-text-centered">
+        Bethany Shoun-(portfolio link)
+      </h3>
+      <h3 class="subtitle level-item has-text-centered">
+        Justice Mckinney-(portfolio link)
+      </h3>
+      </h3>
+      <h3 class="subtitle level-item has-text-centered">
+        Mackenzie Abe-(portfolio link)
+      </h3>
+    </section>
+
+
+
+  </section>
   <script src="/javascript/logout.js"></script>
-  {{/if}}
+
 </body>
 
 </html>

@@ -1,11 +1,28 @@
-header {
+/* header {
     display: flex;
     align-items: center;
-    background-color: rgb(148, 180, 159);
-    color: rgb(252, 248, 232);
+    background-color: rgb(99, 0, 0);
+    color: rgb(238, 235, 221);
+    padding: 20px 35px;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 50px;
+
 
 }
 
 h1 {
-    font-size: 40%;
-}
+    font-size: 40%; */
+/* } */
+
+/* .hero {
+    background-position: center;
+    background-size:cover;
+    background-image: url("../stylesheets/images/mel-poole-gT-Sob4njj8-unsplash.jpg");
+  min-height: 10%;
+    max-width: 50%;
+
+}  
+.menu {
+display: none;
+} */
