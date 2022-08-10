@@ -8,6 +8,7 @@ router.get('/', withAuth, (req, res) => {
   console.log(req.session);
   console.log('=====Getting Posts======');
   Post.findAll({
+    raw: true,
     where: {
       user_id: req.session.user_id
     },
@@ -15,7 +16,7 @@ router.get('/', withAuth, (req, res) => {
       'id',
       'title',
       'created_at',
-     // [sequelize.literal('(SELECT COUNT(*) FROM heart WHERE post.id = heart.post_id)'), 'heart_count']
+     [sequelize.literal('(SELECT COUNT(*) FROM heart WHERE post.id = heart.post_id)'), 'heart_count']
     ],
     include: [
       {
@@ -23,18 +24,19 @@ router.get('/', withAuth, (req, res) => {
         attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
         include: {
           model: User,
-          attributes: ['username']
-        }
+          attributes: ['username'],
+        },
       },
       {
         model: User,
-        attributes: ['username']
-      }
-    ]
+        attributes: ['username'],
+      },
+    ],
   })
     .then(dbPostData => {
-      const posts = dbPostData.map(post => post.get({ plain: true }));
-      res.render('dashboard', { posts, loggedIn: true });
+        console.log(dbPostData);
+      //const posts = dbPostData.map(post => post.get({ plain: true }));
+      res.render('dashboard', { dbPostData, loggedIn: true });
     })
     .catch(err => {
         console.log(err);

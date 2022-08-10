@@ -10,7 +10,6 @@ const sequelize = require("./config/connection");
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const sess = {
-//***Need to add process.env.MY_SECRET to connection.js */
   secret: process.env.MY_SECRET,
   cookie: {},
   resave: false,

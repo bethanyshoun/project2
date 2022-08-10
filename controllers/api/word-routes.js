@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
         const words = dbWordData.map(word => {
             console.log(word.text);
         wordsArray.push(word.text)
-
+        console.log(words); //?need to define words
     })
 console.log(wordsArray);
 
