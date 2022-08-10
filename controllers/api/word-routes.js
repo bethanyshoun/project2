@@ -11,6 +11,7 @@ router.get('/', (req, res) => {
         const words = dbWordData.map(word => {
             console.log(word.text);
         wordsArray.push(word.text)
+        console.log(words);
 
     })
 console.log(wordsArray);
@@ -23,6 +24,10 @@ console.log(wordsArray);
       res.status(500).json(err);
     });
 }); 
+
+// router.get('../../views/partials/dashboard.handlebars', (req, res) => {
+//     res.render('wordsArray', { Word: 'wordsArray'});
+// });
 
 
 module.exports = router;
