@@ -1,0 +1,11 @@
+header {
+    display: flex;
+    align-items: center;
+    background-color: rgb(148, 180, 159);
+    color: rgb(252, 248, 232);
+
+}
+
+h1 {
+    font-size: 40%;
+}
