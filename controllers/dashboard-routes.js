@@ -15,7 +15,7 @@ router.get('/', withAuth, (req, res) => {
       'id',
       'title',
       'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM heart WHERE post.id = heart.post_id)'), 'heart_count']
+     // [sequelize.literal('(SELECT COUNT(*) FROM heart WHERE post.id = heart.post_id)'), 'heart_count']
     ],
     include: [
       {
@@ -37,9 +37,9 @@ router.get('/', withAuth, (req, res) => {
       res.render('dashboard', { posts, loggedIn: true });
     })
     .catch(err => {
-      console.log(err);
-      res.status(500).json(err);
-    });
+        console.log(err);
+        res.status(500).json(err);
+    });  
 });
 
 router.get('/edit/:id', withAuth, (req, res) => {
