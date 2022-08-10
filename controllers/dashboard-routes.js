@@ -82,6 +82,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
     });
 });
 
+
 router.get('/word-routes', (req, res) => {
   RandomWord.findOne ({
     where: {
@@ -108,4 +109,7 @@ router.get('/word-routes', (req, res) => {
 });
 
 
+
+
 module.exports = router;
+
