@@ -1,8 +1,10 @@
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
 <section>
   <h2>Create A New Post</h2>
 <section>
    <div class="generate-word">
-    <button type="button" class="generate-word-btn"> Generate Word </button>
+    <button class="button is-normal is-responsive" type="button" id="generate-word-btn"> Generate Word </button>
   </div>
 </section>
   <form class="new-post-form">
@@ -14,7 +16,11 @@
       <label for="post-lyrics">Enter Song Lyrics</label>
       <input type="text" id="post-lyrics" name="post-lyrics"/>
     </div>
+
+    <button class="button is-normal is-responsive is-inline" type="submit" id="create-btn">Create Post</button>
+
     <button type="submit" class="btn">Create Post</button>
+
   </form>
 </section>
 

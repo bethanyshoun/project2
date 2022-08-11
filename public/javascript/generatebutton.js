@@ -1,9 +1,14 @@
 const randomWord = require('../../seeds/random-word-seeds')
+
+const generateBtn = document.querySelector('#generate-word-btn');
+
+
 const generateBtn = document.querySelector('.generate-word-btn');
 /*
 generateBtn.addEventListener("click", randomWord);
 console.log("get word");
 */
+
 generateBtn.addEventListener("click", randomWord (
     document.getElementById("")
 ),
