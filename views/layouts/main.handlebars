@@ -29,7 +29,7 @@
           </div>
           <div id="navbarMenuHeroC" class="navbar-menu p-6">
             <div class="navbar-end">
-              <a class="navbar-item is-active">
+              <a class="navbar-item">
                 <a href="#Home">
                   <box-icon name='home'></box-icon>
                 </a>
@@ -40,13 +40,39 @@
                 <a href="#Login">Login</a>
               </a>
               <a class="navbar-item">
-                <a href="#Creator">Creators</a>
+                <a href="#Music">
+                  <box-icon type='solid' name='music'></box-icon>
+                </a>
               </a>
+              <a class="navbar-item">
+                <a href="#Creator">
+                  <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link is-arrowless">
+                      Creators
+                    </a>
+                    <div class="navbar-dropdown">
+                      <a class="navbar-item">
+                        Bethany Shoun
+                      </a>
+                       <a class="navbar-item">
+                        Justice Mckinney
+                      </a>
+                       <a class="navbar-item">
+                        Mackenzie Abe
+                        </a>
+                    </div>
+                  </div>
+
             </div>
           </div>
         </div>
-      </header>
+        </a>
+
+        </a>
     </div>
+    </div>
+    </div>
+    </header>
     </div>
 
     <!-- Hero content: will be in the middle -->
@@ -60,75 +86,84 @@
       </div>
     </div>
 
-    <section id="About" class="section is-large section-padding-large">
-      <h2 class="title  has-text-centered">About Word Raffle</h2>
-      <p> Word Raffle is a social media platform where lyric lovers can come together and show off their skills. .</p>
-      <p> Once you are successfully logged in, click on the 'Generate Word' button and begin. A random word will
-        appear and your objective is to think of a lyric that has that random word in it and post that lyric.</p>
-      <p> Other users can 'heart' your lyric choice and also comment other lyrics with the same word.</p>
+    <section id="About" class="section is-large section-padding-large has-text-centered">
+      <h2 class="title has-text-centered">About Word Raffle</h2>
+      <h3 class="level-item has-text-centered">
+        Welcome to Word Raffle, a forum for music lovers! <br />
+      </h3>
+      <p> See how far your knowledge of song lyrics can take you. </p>
+      <p> Given a random word, think of a line from a song that contains that word.</p>
+      <p> Give other users' posts a heart if you love what they shared. </p>
+      <p>Comment different lyrics with the same word. </p>
+      How many different song lyrics can a single word generate?</p>
+      <p> Login or create an account to be taken to your dashboard, get your random word, and enjoy!</p>
       <p> Good luck!</p>
     </section>
 
-    <main id="Login" class="level-item has-text-centered">
+    <main id="Login" class="level-item has-text-centered m-6 p-6">
 
-  <div class="wrapper">
-    <header>
-      <h1> Word Raffle</h1>
-         <section class="intro">
+      <div class="wrapper">
+        {{!-- <header>
+          <h1> Word Raffle</h1>
+          <section class="intro">
             <h3 class="welcome">
-            Welcome to Word Raffle, a forum for music lovers! <br/>
+              Welcome to Word Raffle, a forum for music lovers! <br />
             </h3>
             <p class="instructions">
-            See how far your knowledge of song lyrics can take you. 
-            Given a random word, think of a line from a song that contains that word.
-            Give other users' posts a heart if you love what they shared. Comment different lyrics with the same word. 
-            How many different song lyrics can a single word generae?
-            Login or create an account to be taken to your dashboard, get your random word, and enjoy!
-           </p>
+              See how far your knowledge of song lyrics can take you.
+              Given a random word, think of a line from a song that contains that word.
+              Give other users' posts a heart if you love what they shared. Comment different lyrics with the same word.
+              How many different song lyrics can a single word generae?
+              Login or create an account to be taken to your dashboard, get your random word, and enjoy!
+            </p>
           </section>
-      <nav>
-        {{#if loggedIn}}
-        <a href="/dashboard">Go to My Dashboard</a>
-        <button id="logout" class="btn-no-style">Logout</button>
-        {{else}}
-        <a href="/login">Login</a>
-        {{/if}}
-      </nav>
-    </header>
-    <main>
+          <nav>
+            {{#if loggedIn}}
+            <a href="/dashboard">Go to My Dashboard</a>
+            <button id="logout" class="btn-no-style">Logout</button>
+            {{else}}
+            <a href="/login">Login</a>
+            {{/if}}
+          </nav>
+        </header>
+        <main> --}}
 
-      {{{ body }}}
-    </main>
-    <div>
-      <nav>
-        {{#if loggedIn}}
-        <a href="#Home"></a>
-          <box-icon name='home'></box-icon></a>
-        <button class="button is-normal is-responsive" id="logout" >Logout</button>
-        {{else}}
-        <a href="/login" class="level-item has-text-centered p-6 m-6 is-size-3">Login</a>
-        {{/if}}
-      </nav>
-      {{#if loggedIn}}
-      {{/if}}
-    </div>
-    <br>
-    <br>
-    <br>
+          {{{ body }}}
+        </main>
+        <div>
+          <nav class="level-item has-text-centered">
+            {{#if loggedIn}}
+            <a href="#Home"></a>
+            <box-icon name='home'></box-icon></a>
+            <button class="button is-normal is-responsive m-3" id="logout">Logout</button>
+            {{else}}
+            <a href="/login" class="level-item has-text-centered p-6 m-6 is-size-3">Login</a>
+            {{/if}}
+          </nav>
+          {{#if loggedIn}}
+          {{/if}}
+        </div>
+        <br>
+        <br>
+        <br>
 
-    <section id="Creator" class="section">
-      <h2 class="title level-item has-text-centered m-6 p-6">Creators of Word Raffle</h2>
-      <h3 class="subtitle level-item has-text-centered">
-        Bethany Shoun-(portfolio link)
-      </h3>
-      <h3 class="subtitle level-item has-text-centered">
-        Justice Mckinney-(portfolio link)
-      </h3>
-      </h3>
-      <h3 class="subtitle level-item has-text-centered">
-        Mackenzie Abe-(portfolio link)
-      </h3>
-    </section>
+        <section id="Music" class="section m-6 p-6">
+          <h2 class="title level-item has-text-centered m-4 p-4 ">Your Music</h2>
+          <h3 class="subtitle level-item has-text-centered">
+            Upload your music from any of the following platforms:</h3>
+          <li class="level-item has-text-centered">
+            <box-icon type='logo' name='spotify'></box-icon>
+          </li>
+          <li class="level-item has-text-centered">
+            <box-icon type='logo' name='apple'></box-icon>
+          </li>
+          <li class="level-item has-text-centered">
+            <box-icon type='logo' name='apple'></box-icon>
+          </li>
+        </section>
+
+
+
 
 
 
