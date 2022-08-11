@@ -14,7 +14,6 @@
 
 <body>
 
-
   <section class="hero is-success is-fullheight">
     <!-- Hero head: will stick at the top -->
     <div class="hero-head">
@@ -54,12 +53,12 @@
                       <a class="navbar-item">
                         Bethany Shoun
                       </a>
-                       <a class="navbar-item">
+                      <a class="navbar-item">
                         Justice Mckinney
                       </a>
-                       <a class="navbar-item">
+                      <a class="navbar-item">
                         Mackenzie Abe
-                        </a>
+                      </a>
                     </div>
                   </div>
 
@@ -103,64 +102,39 @@
     <main id="Login" class="level-item has-text-centered m-6 p-6">
 
       <div class="wrapper">
-        {{!-- <header>
-          <h1> Word Raffle</h1>
-          <section class="intro">
-            <h3 class="welcome">
-              Welcome to Word Raffle, a forum for music lovers! <br />
-            </h3>
-            <p class="instructions">
-              See how far your knowledge of song lyrics can take you.
-              Given a random word, think of a line from a song that contains that word.
-              Give other users' posts a heart if you love what they shared. Comment different lyrics with the same word.
-              How many different song lyrics can a single word generae?
-              Login or create an account to be taken to your dashboard, get your random word, and enjoy!
-            </p>
-          </section>
-          <nav>
-            {{#if loggedIn}}
-            <a href="/dashboard">Go to My Dashboard</a>
-            <button id="logout" class="btn-no-style">Logout</button>
-            {{else}}
-            <a href="/login">Login</a>
-            {{/if}}
-          </nav>
-        </header>
-        <main> --}}
+        {{{ body }}}
+    </main>
+    <div>
+      <nav class="level-item has-text-centered">
+        {{#if loggedIn}}
+        <a href="#Home"></a>
+        <box-icon name='home'></box-icon></a>
+        <button class="button is-normal is-responsive m-3" id="logout">Logout</button>
+        {{else}}
+        <a href="/login" class="level-item has-text-centered p-6 m-6 is-size-3">Login</a>
+        {{/if}}
+      </nav>
+      {{#if loggedIn}}
+      {{/if}}
+    </div>
+    <br>
+    <br>
+    <br>
 
-          {{{ body }}}
-        </main>
-        <div>
-          <nav class="level-item has-text-centered">
-            {{#if loggedIn}}
-            <a href="#Home"></a>
-            <box-icon name='home'></box-icon></a>
-            <button class="button is-normal is-responsive m-3" id="logout">Logout</button>
-            {{else}}
-            <a href="/login" class="level-item has-text-centered p-6 m-6 is-size-3">Login</a>
-            {{/if}}
-          </nav>
-          {{#if loggedIn}}
-          {{/if}}
-        </div>
-        <br>
-        <br>
-        <br>
-
-        <section id="Music" class="section m-6 p-6">
-          <h2 class="title level-item has-text-centered m-4 p-4 ">Your Music</h2>
-          <h3 class="subtitle level-item has-text-centered">
-            Upload your music from any of the following platforms:</h3>
-          <li class="level-item has-text-centered">
-            <box-icon type='logo' name='spotify'></box-icon>
-          </li>
-          <li class="level-item has-text-centered">
-            <box-icon type='logo' name='apple'></box-icon>
-          </li>
-          <li class="level-item has-text-centered">
-            <box-icon type='logo' name='apple'></box-icon>
-          </li>
-        </section>
+    <section id="Music" class="section m-6 p-6">
+      <h2 class="title level-item has-text-centered m-4 p-4 ">Your Music</h2>
+      <h3 class="subtitle level-item has-text-centered">
+        Upload your music from any of the following platforms:</h3>
+      <li class="level-item has-text-centered">
+        <box-icon type='logo' name='spotify'></box-icon>
+      </li>
+      <li class="level-item has-text-centered">
+        <box-icon type='logo' name='apple'></box-icon>
+      </li>
+      <li class="level-item has-text-centered">
+        <box-icon type='logo' name='amazon'></box-icon>
+      </li>
+    </section>
 
 
 
