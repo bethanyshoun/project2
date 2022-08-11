@@ -2,7 +2,7 @@ async function generateWordHandler(event) {
     event.preventDefault();
 
     const response = await fetch('/api/words/', {
-      method: 'post',
+      method: 'get',
       headers: { 'Content-Type': 'application/json' }
     });
   
