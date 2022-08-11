@@ -28,7 +28,7 @@
           <div id="navbarMenuHeroC" class="navbar-menu p-6">
             <div class="navbar-end">
               <a class="navbar-item is-active">
-                <a href="Home">
+                <a href="#Home">
                   <box-icon name='home'></box-icon>
                 </a>
                 <a class="navbar-item"></a>
@@ -75,7 +75,7 @@
         {{#if loggedIn}}
         <a href="#Home"></a>
           <box-icon name='home'></box-icon></a>
-        <button id="logout" class="button is-small has-addons is-centered">Logout</button>
+        <button class="button is-normal is-responsive" id="logout" >Logout</button>
         {{else}}
         <a href="/login" class="level-item has-text-centered p-6 m-6 is-size-3">Login</a>
         {{/if}}
