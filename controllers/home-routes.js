@@ -4,13 +4,14 @@ const { Post, User, Comment, Heart } = require('../models');
 
 // get all posts for homepage
 router.get('/', (req, res) => {
-  console.log('======================');
+  console.log('===== Home Page =====');
   Post.findAll({
+    raw: true, 
     attributes: [
       'id',
       'title',
       'created_at',
-      //[sequelize.literal('(SELECT COUNT(*) FROM heart WHERE post.id = heart.post_id)'), 'heart_count']
+      [sequelize.literal('(SELECT COUNT(*) FROM heart WHERE post.id = heart.post_id)'), 'heart_count']
     ],
     include: [
       {
@@ -28,10 +29,9 @@ router.get('/', (req, res) => {
     ]
   })
     .then(dbPostData => {
-      const posts = dbPostData.map(post => post.get({ plain: true }));
-
+      //const posts = dbPostData.map(post => post.get({ plain: true }));
       res.render('homepage', {
-        posts,
+        dbPostData,
         loggedIn: req.session.loggedIn
       });
     })
@@ -95,5 +95,6 @@ router.get('/login', (req, res) => {
 
   res.render('login');
 });
+
 
 module.exports = router;

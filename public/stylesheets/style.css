@@ -12,6 +12,7 @@
 }
 
 h1 {
+<<<<<<< HEAD
     font-size: 40%; */
 /* } */
 
@@ -26,3 +27,9 @@ h1 {
 .menu {
 display: none;
 } */
+=======
+    font-size: 40%;
+}
+
+
+>>>>>>> 753e927757cd15cb94c1a57b7bb292d08f6f8d49

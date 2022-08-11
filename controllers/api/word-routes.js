@@ -3,6 +3,7 @@ const { RandomWord } = require('../../models');
 
 
 router.get('/', (req, res) => {
+    console.log("==== Getting Random Word ====");
   RandomWord.findAll()
     .then(dbWordData => { 
         res.json(dbWordData)
@@ -12,7 +13,9 @@ router.get('/', (req, res) => {
             console.log(word.text);
         wordsArray.push(word.text)
         console.log(words);
+
         // res.render("../../views/generateword.handlebars")
+
 
     })
 console.log(wordsArray);
@@ -32,6 +35,11 @@ console.log(wordsArray);
 // router.get('../../views/partials/dashboard.handlebars', (req, res) => {
 //     res.render('wordsArray', { Word: 'wordsArray'});
 // });
+
+router.get('../../views/dashboard.handlebars', (req, res) => {
+    res.render('wordsArray', { Word: 'wordsArray'});
+});
+
 
 
 module.exports = router;
