@@ -14,9 +14,6 @@ router.get('/', (req, res) => {
         wordsArray.push(word.text)
         console.log(words);
 
-        // res.render("../../views/generateword.handlebars")
-
-
     })
 console.log(wordsArray);
 
@@ -36,9 +33,9 @@ console.log(wordsArray);
 //     res.render('wordsArray', { Word: 'wordsArray'});
 // });
 
-router.get('../../views/dashboard.handlebars', (req, res) => {
-    res.render('wordsArray', { Word: 'wordsArray'});
-});
+// router.get('../../views/dashboard.handlebars', (req, res) => {
+//     res.render('wordsArray', { Word: 'wordsArray'});
+// });
 
 
 
