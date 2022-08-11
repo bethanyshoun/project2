@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
   <link rel="stylesheet" href="stylesheet/style.css">
 
   <title>Word Raffle</title>
@@ -28,7 +29,12 @@
           </div>
           <div id="navbarMenuHeroC" class="navbar-menu p-6">
             <div class="navbar-end">
-              <a class="navbar-item is-active">
+              <a class="navbar-item">
+                <a href="#Home">
+                  <box-icon name='home'></box-icon>
+                </a>
+              </a>
+              <a class="navbar-item">
                 <a href="#About">About</a>
               </a>
               <a class="navbar-item">
@@ -53,49 +59,26 @@
     </div>
 
     <section id="About" class="section is-large section-padding-large">
-      <h2 class="title  has-text-centered">About Word Raffle</h2>
-      <p> Word Raffle is a social media platform where lyric lovers can come together and show off their skills. .</p>
-      <p> Once you are successfully logged in, click on the 'Generate Word' button and begin. A random word will
-        appear and your objective is to think of a lyric that has that random word in it and post that lyric.</p>
-      <p> Other users can 'heart' your lyric choice and also comment other lyrics with the same word.</p>
+      <h2 class="title has-text-centered">About Word Raffle</h2>
+      <p> See how far your knowledge of song lyrics can take you.
+        Given a random word, think of a line from a song that contains that word.
+        Give other users' posts a heart if you love what they shared. Comment different lyrics with the same word. .</p>
+      <p> How many different song lyrics can a single word generate?</p>
+      <p> Login or create an account to be taken to your dashboard, get your random word, and enjoy!</p>
       <p> Good luck!</p>
     </section>
 
     <main id="Login" class="level-item has-text-centered">
 
-  <div class="wrapper">
-    <header>
-      <h1> Word Raffle</h1>
-         <section class="intro">
-            <h3 class="welcome">
-            Welcome to Word Raffle, a forum for music lovers! <br/>
-            </h3>
-            <p class="instructions">
-            See how far your knowledge of song lyrics can take you. 
-            Given a random word, think of a line from a song that contains that word.
-            Give other users' posts a heart if you love what they shared. Comment different lyrics with the same word. 
-            How many different song lyrics can a single word generae?
-            Login or create an account to be taken to your dashboard, get your random word, and enjoy!
-           </p>
-          </section>
-      <nav>
-        {{#if loggedIn}}
-        <a href="/dashboard">Go to My Dashboard</a>
-        <button id="logout" class="btn-no-style">Logout</button>
-        {{else}}
-        <a href="/login">Login</a>
-        {{/if}}
-      </nav>
-    </header>
-    <main>
+      {{!-- <div class="wrapper"> --}}
 
-      {{{ body }}}
+        {{{ body }}}
     </main>
     <div>
       <nav>
         {{#if loggedIn}}
-        <a href="/dashboard" class="button is-small has-addons is-centered">Back to Dashboard</a>
-        <button id="logout" class="button is-small has-addons is-centered">Logout</button>
+        <a href="/dashboard" class="button is-medium has-addons is-centered">Back to Dashboard</a>
+        <button id="logout" class="button is-medium has-addons is-centered">Logout</button>
         {{else}}
         <a href="/login" class="level-item has-text-centered p-6 m-6 is-size-3">Login</a>
         {{/if}}
