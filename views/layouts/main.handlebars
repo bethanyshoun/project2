@@ -13,11 +13,22 @@
   <div class="wrapper">
     <header>
       <h1> Word Raffle</h1>
-      <p class="intro">Welcome to Word Raffle, a test of </p>
+         <section class="intro">
+            <h3 class="welcome">
+            Welcome to Word Raffle, a forum for music lovers! <br/>
+            </h3>
+            <p class="instructions">
+            See how far your knowledge of song lyrics can take you. 
+            Given a random word, think of a line from a song that contains that word.
+            Give other users' posts a heart if you love what they shared. Comment different lyrics with the same word. 
+            How many different song lyrics can a single word generae?
+            Login or create an account to be taken to your dashboard, get your random word, and enjoy!
+           </p>
+          </section>
       <nav>
         {{#if loggedIn}}
-        <a href="/dashboard">dashboard</a>
-        <button id="logout" class="btn-no-style">logout</button>
+        <a href="/dashboard">Go to My Dashboard</a>
+        <button id="logout" class="btn-no-style">Logout</button>
         {{else}}
         <a href="/login">Login</a>
         {{/if}}

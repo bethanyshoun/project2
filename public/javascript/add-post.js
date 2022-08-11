@@ -12,11 +12,23 @@ async function newFormHandler(event) {
         'Content-Type': 'application/json'
       }
     });
+    //new for Lyrics
+    const lyrics = document.querySelector('input[name="post-lyrics"]').value;
+
+    const response2 = await fetch(`/api/posts`, {
+      method: 'POST',
+      body: JSON.stringify({
+        lyrics
+      }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
   
-    if (response.ok) {
+    if (response.ok, response2.ok) {
       document.location.replace('/dashboard');
     } else {
-      alert(response.statusText);
+      alert(response.statusText, response2.statusText);
     }
   }
   
