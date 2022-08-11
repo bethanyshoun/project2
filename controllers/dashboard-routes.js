@@ -1,12 +1,12 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Post, User, Comment, Heart, RandomWord, } = require('../models');
+const { Post, User, Comment, Heart, RandomWord } = require('../models');
 const withAuth = require('../utils/auth');
 
 // get all posts for dashboard
 router.get('/', withAuth, (req, res) => {
   console.log(req.session);
-  console.log('=====Getting Posts======');
+  console.log('=====Dashboard======');
   Post.findAll({
     raw: true,
     where: {
@@ -110,8 +110,4 @@ router.get('/word-routes', (req, res) => {
   });
 });
 
-
-
-
 module.exports = router;
-

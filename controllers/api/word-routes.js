@@ -13,14 +13,16 @@ router.get('/', (req, res) => {
             console.log(word.text);
         wordsArray.push(word.text)
         console.log(words);
-
     })
 console.log(wordsArray);
 
     var randomWord = wordsArray [Math.floor(Math.random() * wordsArray.length)]
     console.log(randomWord)
    
+    res.render('dashboard', { getWord: RandomWord });
 })
+    
+
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
@@ -28,15 +30,13 @@ console.log(wordsArray);
    
 }); 
 
-
+module.exports = router;
+/*
+router.get('../../views/dashboard.handlebars', (req, res) => {
+    res.render('wordsArray', { Word: 'wordsArray'});
+});
+*/
 // router.get('../../views/partials/dashboard.handlebars', (req, res) => {
 //     res.render('wordsArray', { Word: 'wordsArray'});
 // });
 
-// router.get('../../views/dashboard.handlebars', (req, res) => {
-//     res.render('wordsArray', { Word: 'wordsArray'});
-// });
-
-
-
-module.exports = router;
