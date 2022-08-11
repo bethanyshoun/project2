@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
   <link rel="stylesheet" href="stylesheet/style.css">
   <title>Word Raffle</title>
 </head>
@@ -27,6 +28,10 @@
           <div id="navbarMenuHeroC" class="navbar-menu p-6">
             <div class="navbar-end">
               <a class="navbar-item is-active">
+                <a href="Home">
+                  <box-icon name='home'></box-icon>
+                </a>
+                <a class="navbar-item"></a>
                 <a href="#About">About</a>
               </a>
               <a class="navbar-item">
@@ -40,13 +45,16 @@
         </div>
       </header>
     </div>
+    </div>
 
     <!-- Hero content: will be in the middle -->
-    <div class="hero-body">
-      <div class="container has-text-centered  my-6 py-6">
-        <h1 class="title is-size-1">
-          Word Raffle
-        </h1>
+    <div id="Home">
+      <div class="hero-body">
+        <div class="container has-text-centered  my-6 py-6">
+          <h1 class="title is-size-1">
+            Word Raffle
+          </h1>
+        </div>
       </div>
     </div>
 
@@ -65,7 +73,8 @@
     <div>
       <nav>
         {{#if loggedIn}}
-        <a href="/dashboard" class="button is-small has-addons is-centered">Back to Dashboard</a>
+        <a href="#Home"></a>
+          <box-icon name='home'></box-icon></a>
         <button id="logout" class="button is-small has-addons is-centered">Logout</button>
         {{else}}
         <a href="/login" class="level-item has-text-centered p-6 m-6 is-size-3">Login</a>
