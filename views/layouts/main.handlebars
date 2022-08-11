@@ -5,12 +5,18 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   <link rel="stylesheet" href="stylesheet/style.css">
+=======
+  {{!-- <script src="https://cdn.tailwindcss.com"></script> --}}
+  <link rel="stylesheet" href="../../public/stylesheets/style.css"> 
+>>>>>>> 753e927757cd15cb94c1a57b7bb292d08f6f8d49
   <title>Word Raffle</title>
 </head>
 
 <body>
+<<<<<<< HEAD
 
   <section class="hero is-success is-fullheight">
     <!-- Hero head: will stick at the top -->
@@ -60,6 +66,22 @@
     </section>
 
     <main id="Login" class="level-item has-text-centered">
+=======
+  <div class="wrapper">
+    <header>
+      <h1> Word Raffle</h1>
+      <p class="intro">Welcome to Word Raffle, a test of </p>
+      <nav>
+        {{#if loggedIn}}
+        <a href="/dashboard">dashboard</a>
+        <button id="logout" class="btn-no-style">logout</button>
+        {{else}}
+        <a href="/login">Login</a>
+        {{/if}}
+      </nav>
+    </header>
+    <main>
+>>>>>>> 753e927757cd15cb94c1a57b7bb292d08f6f8d49
       {{{ body }}}
     </main>
     <div>

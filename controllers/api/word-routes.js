@@ -12,7 +12,6 @@ router.get('/', (req, res) => {
             console.log(word.text);
         wordsArray.push(word.text)
         console.log(words);
-
     })
 console.log(wordsArray);
 
