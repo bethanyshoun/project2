@@ -12,6 +12,7 @@ async function newFormHandler(event) {
         'Content-Type': 'application/json'
       }
     });
+    /*
     //new for Lyrics
     const lyrics = document.querySelector('input[name="post-lyrics"]').value;
 
@@ -24,13 +25,24 @@ async function newFormHandler(event) {
         'Content-Type': 'application/json'
       }
     });
+    */
+
+    if (response.ok) {
+      document.location.replace('/dashboard');
+    } else {
+      alert(response.statusText);
+    }
+  }
+
+    /*
   
     if (response.ok, response2.ok) {
       document.location.replace('/dashboard');
     } else {
       alert(response.statusText, response2.statusText);
     }
+    
   }
-  
+  */
   document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
   
