@@ -29,7 +29,13 @@ console.log(wordsArray);
 }); 
 
 
+// router.get('../../views/partials/dashboard.handlebars', (req, res) => {
+//     res.render('wordsArray', { Word: 'wordsArray'});
+// });
 
+// router.get('../../views/dashboard.handlebars', (req, res) => {
+//     res.render('wordsArray', { Word: 'wordsArray'});
+// });
 
 
 
