@@ -36,14 +36,21 @@ router.get('/', withAuth, (req, res) => {
   })
     .then(dbPostData => {
         console.log(dbPostData);
-        //comment out next line and change posts to dbPostData
-      //const posts = dbPostData.map(post => post.get({ plain: true }));
-      res.render('dashboard', { dbPostData, loggedIn: true });
+        RandomWord.findAll()
+      .then(dbWordData => {
+          const words = dbWordData.map(word => word.get({ plain: true }));
+      res.render('dashboard', { dbPostData, loggedIn: true, words,
+        randomWord: words[Math.floor(Math.random()* words.length)].text });
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
     })
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
-    });  
+    });
 });
 
 router.get('/edit/:id', withAuth, (req, res) => {

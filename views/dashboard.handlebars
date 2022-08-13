@@ -1,4 +1,4 @@
-{{!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"> --}}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"> 
 
 <section>
   <h2 class="is-size-3 p-6">Create A New Post</h2>
@@ -7,7 +7,13 @@
       <button class="button is-normal is-responsive m-4" type="submit" id="generate-word-btn"> Generate Word </button>
     </div>
   </section>
-
+  <div class="generate-word">
+    <button class="button is-normal is-responsive" type="button" id="generate-word-btn"> Generate Word </button>
+    {{log "LOG" words}}
+    {{log randomWord}}
+    <p> Your word is: {{randomWord}}
+   </p>
+  </div>
   <section class="is-align-content-space-evenly">
     <form class="new-post-form">
       <div>
@@ -39,6 +45,6 @@
 </section>
 {{/if}}
 
-<script src="../public/javascript/add-post.js"></script>
-<script src="../public/javascript/generatebutton.js"></script>
+<script src="/javascript/add-post.js"></script>
+<script src="/javascript/generatebutton.js"></script>
 
