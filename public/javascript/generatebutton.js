@@ -5,7 +5,7 @@ async function generateWord() {
 
 });
 
-if (responde.ok) {
+if (response.ok) {
     document.location.replace('/');
 } else {
     alert(response.statusText);
@@ -14,7 +14,3 @@ if (responde.ok) {
 document.querySelector('#generate-word-button').addEventListener('click', generateWord);
 
 
-
-
-
-<script src= "/views/dashboard.handlebars"></script>

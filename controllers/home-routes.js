@@ -2,7 +2,7 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Post, User, Comment, Heart } = require('../models');
 
-// get all posts for homepage
+// get all of a user's posts for homepage
 router.get('/', (req, res) => {
   console.log('===== Home Page =====');
   Post.findAll({
@@ -10,6 +10,7 @@ router.get('/', (req, res) => {
     attributes: [
       'id',
       'title',
+      //'post_lyrics',
       'created_at',
       [sequelize.literal('(SELECT COUNT(*) FROM heart WHERE post.id = heart.post_id)'), 'heart_count']
     ],
@@ -50,6 +51,7 @@ router.get('/post/:id', (req, res) => {
     attributes: [
       'id',
       'title',
+      //'post_lyrics',
       'created_at',
       [sequelize.literal('(SELECT COUNT(*) FROM heart WHERE post.id = heart.post_id)'), 'heart_count']
     ],

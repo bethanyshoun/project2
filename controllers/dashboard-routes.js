@@ -15,6 +15,7 @@ router.get('/', withAuth, (req, res) => {
     attributes: [
       'id',
       'title',
+      //'post_lyrics',
       'created_at',
      [sequelize.literal('(SELECT COUNT(*) FROM heart WHERE post.id = heart.post_id)'), 'heart_count']
     ],
@@ -35,13 +36,21 @@ router.get('/', withAuth, (req, res) => {
   })
     .then(dbPostData => {
         console.log(dbPostData);
-      //const posts = dbPostData.map(post => post.get({ plain: true }));
-      res.render('dashboard', { dbPostData, loggedIn: true });
+      RandomWord.findAll()
+      .then(dbWordData => {
+          const words = dbWordData.map(word => word.get({ plain: true }));
+      res.render('dashboard', { dbPostData, loggedIn: true, words,
+        randomWord: words[Math.floor(Math.random()* words.length)].text });
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
     })
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
-    });  
+    });
 });
 
 router.get('/edit/:id', withAuth, (req, res) => {
@@ -49,6 +58,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
     attributes: [
       'id',
       'title',
+      // 'post_lyrics',
       'created_at',
       [sequelize.literal('(SELECT COUNT(*) FROM heart WHERE post.id = heart.post_id)'), 'heart_count']
     ],

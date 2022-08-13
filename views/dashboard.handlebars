@@ -1,31 +1,41 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"> 
 
 <section>
   <h2 class="is-size-3 p-6">Create A New Post</h2>
   <section class="is-align-content-space-evenly">
     <div class="generate-word">
-      <button class="button is-normal is-responsive m-4" type="button" id="generate-word-btn"> Generate Word </button>
-      <form class="new-post-form">
-        <label for="post-title">Enter Random Word</label>
-        <input type="text" id="post-title" name="post-title" />
+      <button class="button is-normal is-responsive m-4" type="submit" id="generate-word-btn"> Generate Word </button>
     </div>
   </section>
+  <div class="generate-word">
+    <button class="button is-normal is-responsive" type="button" id="generate-word-btn"> Generate Word </button>
+    {{log "LOG" words}}
+    {{log randomWord}}
+    <p> Your word is: {{randomWord}}
+   </p>
+  </div>
   <section class="is-align-content-space-evenly">
-    <div>
-      <label for="post-lyrics">Enter Song Lyrics</label>
-      <input type="text" id="post-lyrics" name="post-lyrics" />
-    </div>
-
-    <button class="button is-normal is-responsive is-inline m-4" type="submit" id="create-btn">Create Post</button>
+    <form class="new-post-form">
+      <div>
+        <label for="post-title">Enter Your Random Word</label>
+        <input type="text" id="post-title" name="post-title" />
+      </div>
+     {{!-- <div>
+        <label for="post-lyrics">Enter Song Lyrics</label>
+        <input type="text" id="post-lyrics" name="post-lyrics" />
+      </div> --}} 
+      <button class="button is-normal is-responsive is-inline m-4" type="submit" id="create-btn">
+      Create Post
+      </button>
+    </form>
   </section>
-  </form>
 </section>
-
-{{#if posts.length}}
+{{log dbPostData}}
+{{#if dbPostData.length}}
 <section>
   <h2>Posts You've Made</h2>
   <ol>
-    {{#each posts as |post|}}
+    {{#each dbPostData as |post|}}
     <li>
       {{> post-info post}}
       <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit Post</a>
@@ -35,6 +45,5 @@
 </section>
 {{/if}}
 
-<script src="../public/javascript/generatebutton.js"></script>
-
-<script src="../public/javascript/add-post.js"></script>
+<script src="/javascript/add-post.js"></script>
+<script src="/javascript/generatebutton.js"></script>
