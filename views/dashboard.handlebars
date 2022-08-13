@@ -30,12 +30,12 @@
     </form>
   </section>
 </section>
-
-{{#if posts.length}}
+{{log dbPostData}}
+{{#if dbPostData.length}}
 <section>
   <h2>Posts You've Made</h2>
   <ol>
-    {{#each posts as |post|}}
+    {{#each dbPostData as |post|}}
     <li>
       {{> post-info post}}
       <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit Post</a>

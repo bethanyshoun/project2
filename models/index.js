@@ -7,14 +7,15 @@ const RandomWord = require('./RandomWord')
 
 // create associations
 User.hasMany(Post, {
-  foreignKey: 'user_id'
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE'
 });
 
 Post.belongsTo(User, {
   foreignKey: 'user_id',
-  onDelete: 'SET NULL'
+  onDelete: 'CASCADE'
 });
-
+/*
 User.belongsToMany(Post, {
   through: Heart,
   as: 'hearted_posts',
@@ -47,7 +48,7 @@ User.hasMany(Heart, {
 Post.hasMany(Heart, {
   foreignKey: 'post_id'
 });
-
+*/
 Comment.belongsTo(User, {
   foreignKey: 'user_id',
   onDelete: 'SET NULL'

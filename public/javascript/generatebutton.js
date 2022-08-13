@@ -17,4 +17,4 @@ document.querySelector('#generate-word-button').addEventListener('click', genera
 
 
 
-<script src= "/views/dashboard.handlebars"></script>
+
