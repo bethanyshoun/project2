@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
     attributes: [
       'id',
       'title',
-      //'post_lyrics',
+      'post_lyrics',
       'created_at',
       //[sequelize.literal('(SELECT COUNT(*) FROM heart WHERE post.id = heart.post_id)'), 'heart_count']
     ],
@@ -45,7 +45,7 @@ router.get('/:id', (req, res) => {
     attributes: [
       'id',
       'title',
-      //'post_lyrics',
+      'post_lyrics',
       'created_at',
       [sequelize.literal('(SELECT COUNT(*) FROM heart WHERE post.id = heart.post_id)'), 'heart_count']
     ],
@@ -78,10 +78,10 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', withAuth, (req, res) => {
-  // expects {title: 'Random Word', **Under development** post_lyrics: 'Lyrics'**, user_id: ''}
+  // expects {title: 'Random Word', post_lyrics: 'Lyrics', user_id: ''}
   Post.create({
     title: req.body.title,
-    // post_lyrics: req.body.post_lyrics,
+    post_lyrics: req.body.post_lyrics,
     user_id: req.session.user_id
   })
     .then(dbPostData => res.json(dbPostData))
@@ -104,7 +104,8 @@ router.put('/heart', withAuth, (req, res) => {
 router.put('/:id', withAuth, (req, res) => {
   Post.update(
     {
-      title: req.body.title
+      title: req.body.title,
+      post_lyrics: req.body.post_lyrics
     },
     {
       where: {

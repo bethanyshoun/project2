@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
     attributes: [
       'id',
       'title',
-      //'post_lyrics',
+      'post_lyrics',
       'created_at',
       [sequelize.literal('(SELECT COUNT(*) FROM heart WHERE post.id = heart.post_id)'), 'heart_count']
     ],
@@ -51,7 +51,7 @@ router.get('/post/:id', (req, res) => {
     attributes: [
       'id',
       'title',
-      //'post_lyrics',
+      'post_lyrics',
       'created_at',
       [sequelize.literal('(SELECT COUNT(*) FROM heart WHERE post.id = heart.post_id)'), 'heart_count']
     ],

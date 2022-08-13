@@ -7,15 +7,22 @@
       <button class="button is-normal is-responsive m-4" type="submit" id="generate-word-btn"> Generate Word </button>
       {{log "LOG" words}}
       {{log randomWord}}
-      <p> Your word is: <span id="random-word" hidden>{{randomWord}}</span>
+      <p> Your word is: <span class="is-size-5 p-6" id="random-word" hidden>{{randomWord}}</span>
       </p>
     </div>
   </section>
+  <br>
+  <br>
+  <br>
   <section class="is-align-content-space-evenly">
     <form class="new-post-form">
       <div>
         <label for="post-title">Enter Your Random Word</label>
         <input type="text" id="post-title" name="post-title" />
+       {{!-- New Addition --}}
+       <br>
+        <label for="post-lyrics">Enter Song Containing Random Word</label>
+        <input type="text" id="post-lyrics" name="post-lyrics"/>
       </div>
      {{!-- <div>
         <label for="post-lyrics">Enter Song Lyrics</label>

@@ -1,37 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 // create our Post model
-class Post extends Model {
- /* static heart(body, models) {
-    return models.heart.create({
-      user_id: body.user_id,
-      post_id: body.post_id
-    }).then(() => {
-      return Post.findOne({
-        where: {
-          id: body.post_id
-        },
-        attributes: [
-          'id',
-          'title',
-          'created_at',
-          //'post_lyrics',
-          [sequelize.literal('(SELECT COUNT(*) FROM heart WHERE post.id = heart.post_id)'), 'heart_count']
-        ],
-        include: [
-          {
-            model: models.Comment,
-            attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
-            include: {
-              model: models.User,
-              attributes: ['username']
-            }
-          }
-        ]
-      });
-    });
-  } */
-}
+class Post extends Model {}
 
 // create fields/columns for Post model
 Post.init(
@@ -46,10 +16,10 @@ Post.init(
       type: DataTypes.STRING,
       allowNull: false
     },
-   /* post_lyrics: {
+    post_lyrics: {
       type: DataTypes.STRING,
-      allowNull: false
-    },*/
+      allowNull: true
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
