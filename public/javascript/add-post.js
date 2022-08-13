@@ -2,8 +2,8 @@ async function newFormHandler(event) {
     event.preventDefault();
   
     const title = document.querySelector('input[name="post-title"]').value;
-    
-    const response = await fetch(`/api/posts`, {
+    // replaced ` with '
+    const response = await fetch('/api/posts', {
       method: 'POST',
       body: JSON.stringify({
         title
@@ -12,6 +12,8 @@ async function newFormHandler(event) {
         'Content-Type': 'application/json'
       }
     });
+
+    /*
     //new for Lyrics
     const lyrics = document.querySelector('input[name="post-lyrics"]').value;
 
@@ -31,6 +33,13 @@ async function newFormHandler(event) {
       alert(response.statusText, response2.statusText);
     }
   }
+*/
+  if (response.ok) {
+    document.location.replace('/dashboard');
+  } else {
+    alert(response.statusText);
+  }
+}
   
   document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
   

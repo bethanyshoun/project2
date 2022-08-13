@@ -3,15 +3,15 @@ const sequelize = require('../../config/connection');
 const { Post, User, Comment, Heart} = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// get all users
+//Get all Posts
 router.get('/', (req, res) => {
-  console.log('==== Getting Users ====');
+  console.log('==== Getting Posts ====');
   Post.findAll({
     attributes: [
       'id',
       'title',
       'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM heart WHERE post.id = heart.post_id)'), 'heart_count']
+      //[sequelize.literal('(SELECT COUNT(*) FROM heart WHERE post.id = heart.post_id)'), 'heart_count']
     ],
     include: [
       {
