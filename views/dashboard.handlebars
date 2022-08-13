@@ -5,7 +5,10 @@
 <section>
    <div class="generate-word">
     <button class="button is-normal is-responsive" type="button" id="generate-word-btn"> Generate Word </button>
-    <p id="random-word"> Your word is: {{ getWord }} </p>
+   {{log "LOG" words}}
+  {{log randomWord}}
+    <p> Your word is: <span id="random-word" hidden>{{randomWord}}</span>
+   </p>
   </div>
 </section>
   <form class="new-post-form">
@@ -42,6 +45,6 @@
 </section>
 {{/if}}
 
-<script src="../public/javascript/generatebutton.js"></script>
+<script src="/javascript/generatebutton.js"></script>
 
-<script src="../public/javascript/add-post.js"></script>
+<script src="/javascript/add-post.js"></script>

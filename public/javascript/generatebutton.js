@@ -1,21 +1,9 @@
 async function generateWordHandler(event) {
-    event.preventDefault();
+  event.preventDefault();
+  document.getElementById('random-word').hidden = false;
+}
 
-    const response = await fetch('/api/words/', {
-      method: 'GET',
-      headers: { 'Content-Type': 'application/json' }
-    });
-  
-    if (response.ok) {
-      document.location.replace('/');
-    } else {
-      alert(response.statusText);
-    }
-    
-  }
-  
-  document.querySelector('#generate-word-btn').addEventListener('click', generateWordHandler);
-
+document.querySelector('#generate-word-btn').addEventListener('click', generateWordHandler);
   console.log("clicked");
   
 
