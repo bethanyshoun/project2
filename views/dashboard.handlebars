@@ -5,6 +5,10 @@
   <section class="is-align-content-space-evenly">
     <div class="generate-word">
       <button class="button is-normal is-responsive m-4" type="submit" id="generate-word-btn"> Generate Word </button>
+      {{log "LOG" words}}
+      {{log randomWord}}
+      <p> Your word is: <span id="random-word" hidden>{{randomWord}}</span>
+      </p>
     </div>
   </section>
   <div class="generate-word">
