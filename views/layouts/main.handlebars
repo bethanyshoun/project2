@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word Raffle</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
-  <link rel="stylesheet" href="stylesheet/style.css">
-
-  <title>Word Raffle</title>
+  <link rel="stylesheet" href="stylesheet/style.css"> 
 </head>
 
 <body>
-
+   <div class="wrapper">
   <section class="hero is-success is-fullheight">
     <!-- Hero head: will stick at the top -->
     <div class="hero-head">
@@ -31,6 +29,9 @@
               <a class="navbar-item">
                 <a href="#Home">
                   <box-icon name='home'></box-icon>
+                </a>
+                <a class="navbar-item">
+                <a href="/dashboard">Dashboard</a>
                 </a>
                 <a class="navbar-item"></a>
                 <a href="#About">About</a>
@@ -61,16 +62,15 @@
                       </a>
                     </div>
                   </div>
-
             </div>
           </div>
         </div>
         </a>
 
         </a>
-    </div>
-    </div>
-    </div>
+        </div>
+        </div>
+      </div>
     </header>
     </div>
 
@@ -84,10 +84,11 @@
         </div>
       </div>
     </div>
-
+  </section>
     <section id="About" class="section is-large section-padding-large has-text-centered">
       <h2 class="title has-text-centered">About Word Raffle</h2>
       <h3 class="level-item has-text-centered">
+  
         Welcome to Word Raffle, a forum for music lovers! <br />
       </h3>
       <p> See how far your knowledge of song lyrics can take you. </p>
@@ -98,15 +99,10 @@
       <p> Login or create an account to be taken to your dashboard, get your random word, and enjoy!</p>
       <p> Good luck!</p>
     </section>
-
-    <main id="Login" class="level-item has-text-centered m-6 p-6">
-
-      <div class="wrapper">
-        {{{ body }}}
-    </main>
     <div>
       <nav class="level-item has-text-centered">
         {{#if loggedIn}}
+        <a href="/dashboard">Dashboard</a>
         <a href="#Home"></a>
         <box-icon name='home'></box-icon></a>
         <button class="button is-normal is-responsive m-3" id="logout">Logout</button>
@@ -114,13 +110,16 @@
         <a href="/login" class="level-item has-text-centered p-6 m-6 is-size-3">Login</a>
         {{/if}}
       </nav>
-      {{#if loggedIn}}
-      {{/if}}
     </div>
-    <br>
-    <br>
-    <br>
 
+    <main id="Login" class="level-item has-text-centered m-6 p-6">
+        {{{ body }}}
+    </main>
+
+    <br>
+    <br>
+    <br>
+  
     <section id="Music" class="section m-6 p-6">
       <h2 class="title level-item has-text-centered m-4 p-4 ">Your Music</h2>
       <h3 class="subtitle level-item has-text-centered">
@@ -136,14 +135,14 @@
       </li>
     </section>
 
+    <footer>
+      Thanks for stopping by!
+    </footer>
 
-
-
-
-
-  </section>
+  {{#if loggedIn}}
   <script src="/javascript/logout.js"></script>
+  {{/if}}
 
 </body>
-
+ 
 </html>

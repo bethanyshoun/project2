@@ -3,15 +3,16 @@ const sequelize = require('../../config/connection');
 const { Post, User, Comment, Heart} = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// get all users
+// Get all Posts
 router.get('/', (req, res) => {
-  console.log('==== Getting Users ====');
+  console.log('==== Getting Posts ====');
   Post.findAll({
     attributes: [
       'id',
       'title',
+      'post_lyrics',
       'created_at',
-      [sequelize.literal('(SELECT COUNT(*) FROM heart WHERE post.id = heart.post_id)'), 'heart_count']
+      //[sequelize.literal('(SELECT COUNT(*) FROM heart WHERE post.id = heart.post_id)'), 'heart_count']
     ],
     include: [
       {
@@ -35,6 +36,7 @@ router.get('/', (req, res) => {
     });
 });
 
+//Get a single post
 router.get('/:id', (req, res) => {
   Post.findOne({
     where: {
@@ -43,6 +45,7 @@ router.get('/:id', (req, res) => {
     attributes: [
       'id',
       'title',
+      'post_lyrics',
       'created_at',
       [sequelize.literal('(SELECT COUNT(*) FROM heart WHERE post.id = heart.post_id)'), 'heart_count']
     ],
@@ -75,9 +78,10 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', withAuth, (req, res) => {
-  // expects {title: 'Title of Comment', user_id: ''}
+  // expects {title: 'Random Word', post_lyrics: 'Lyrics', user_id: ''}
   Post.create({
     title: req.body.title,
+    post_lyrics: req.body.post_lyrics,
     user_id: req.session.user_id
   })
     .then(dbPostData => res.json(dbPostData))
@@ -100,7 +104,8 @@ router.put('/heart', withAuth, (req, res) => {
 router.put('/:id', withAuth, (req, res) => {
   Post.update(
     {
-      title: req.body.title
+      title: req.body.title,
+      post_lyrics: req.body.post_lyrics
     },
     {
       where: {
