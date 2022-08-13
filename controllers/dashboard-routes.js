@@ -15,6 +15,7 @@ router.get('/', withAuth, (req, res) => {
     attributes: [
       'id',
       'title',
+      //'post_lyrics',
       'created_at',
      [sequelize.literal('(SELECT COUNT(*) FROM heart WHERE post.id = heart.post_id)'), 'heart_count']
     ],
@@ -35,6 +36,7 @@ router.get('/', withAuth, (req, res) => {
   })
     .then(dbPostData => {
         console.log(dbPostData);
+        //comment out next line and change posts to dbPostData
       //const posts = dbPostData.map(post => post.get({ plain: true }));
       res.render('dashboard', { dbPostData, loggedIn: true });
     })
@@ -49,6 +51,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
     attributes: [
       'id',
       'title',
+     // 'post_lyrics',
       'created_at',
       [sequelize.literal('(SELECT COUNT(*) FROM heart WHERE post.id = heart.post_id)'), 'heart_count']
     ],

@@ -14,6 +14,7 @@ class Post extends Model {
         attributes: [
           'id',
           'title',
+          'post_lyrics',
           'created_at',
           [sequelize.literal('(SELECT COUNT(*) FROM heart WHERE post.id = heart.post_id)'), 'heart_count']
         ],
@@ -45,7 +46,10 @@ Post.init(
       type: DataTypes.STRING,
       allowNull: false
     },
-  
+   /* post_lyrics: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },*/
     user_id: {
       type: DataTypes.INTEGER,
       references: {
