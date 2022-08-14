@@ -35,8 +35,8 @@ router.get('/', withAuth, (req, res) => {
   })
     .then(dbPostData => {
         console.log(dbPostData);
-      //const posts = dbPostData.map(post => post.get({ plain: true }));
-      res.render('dashboard', { dbPostData, loggedIn: true });
+      const posts = dbPostData.map(post => post.get({ plain: true }));
+      res.render('dashboard', {posts, loggedIn: true });
     })
     .catch(err => {
         console.log(err);
@@ -85,30 +85,30 @@ router.get('/edit/:id', withAuth, (req, res) => {
 });
 
 
-router.get('/word-routes', (req, res) => {
-  RandomWord.findOne ({
-    where: {
-      id: req.params.id
-    },
-    include: [
-      {
-        model: RandomWord,
-        attributes: ['id', 'text']
-      }
-    ]
-  })
-  .then(dbUserData => {
-    if (!dbUserData) {
-      res.status(404).json({ message: 'No text found with this id' });
-      return;
-    }
-    res.json(dbUserData);
-  })
-  .catch(err => {
-    console.log(err);
-    res.status(500).json(err);
-  });
-});
+// router.get('/word-routes', (req, res) => {
+//   RandomWord.findOne ({
+//     where: {
+//       id: req.params.id
+//     },
+//     include: [git che
+//       {
+//         model: RandomWord,
+//         attributes: ['id', 'text']
+//       }
+//     ]
+//   })
+//   .then(dbUserData => {
+//     if (!dbUserData) {
+//       res.status(404).json({ message: 'No text found with this id' });
+//       return;
+//     }
+//     res.json(dbUserData);
+//   })
+//   .catch(err => {
+//     console.log(err);
+//     res.status(500).json(err);
+//   });
+// });
 
 
 
