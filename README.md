@@ -1,4 +1,6 @@
-The purpose of this group project was to create a to create a full-stack application that works with real-world data to solve a real-world challenge by using Node.js and Express.js to create a RESTful API, Handlebars.js as the templating engine, MySQL and the Sequelize ORM for the database, both GET and POST routes for retrieving and adding new data, and be deployed using Heroku (with data), while using at least one new library, package, or technology, and has a polished user interface.
+#Word Raffle
+
+Project description: The purpose of this group project was to create a to create a full-stack application that works with real-world data to solve a real-world challenge by using Node.js and Express.js to create a RESTful API, Handlebars.js as the templating engine, MySQL and the Sequelize ORM for the database, both GET and POST routes for retrieving and adding new data, and be deployed using Heroku (with data), while using at least one new library, package, or technology, and has a polished user interface.
 
 We decided to make something fun; a social media platform that invites music/song-lyric lovers to join together and test how well they really know lyrics to songs.
 
