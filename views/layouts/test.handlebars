@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Word Raffle</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
+    <link rel="stylesheet" href="stylesheet/style.css">
+</head>
+
+<section class="hero is-primary is-medium">
+    <!-- Hero head: will stick at the top -->
+    <div class="hero-head">
+        <nav class="navbar">
+            <div class="container">
+                <div class="navbar-brand">
+                    <span class="navbar-burger" data-target="navbarMenuHeroA">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                </div>
+                <div id="navbarMenuHeroA" class="navbar-menu p-6">
+                    <div class="navbar-end">
+                        <a class="navbar-item">
+                            <a href="#Home">
+                                <box-icon name='home'></box-icon>
+                            </a>
+                            <a class="navbar-item">
+                                <a href="/dashboard">Dashboard</a>
+                            </a>
+                            <a class="navbar-item">
+                                <a href="#About">About</a>
+                            </a>
+                            <a class="navbar-item">
+                                <a href="/login">Login</a>
+                            </a>
+                            <a class="navbar-item">
+                                <a href="#Music">
+                                    <box-icon type='solid' name='music'></box-icon>
+                                </a>
+                            </a>
+                            <a class="navbar-item">
+                                <a href="#Creator">
+                                    <div class="navbar-item has-dropdown is-hoverable">
+                                        <a class="navbar-link is-arrowless">
+                                            Creators
+                                        </a>
+                                        <div class="navbar-dropdown">
+                                            <a class="navbar-item">
+                                                Bethany Shoun
+                                            </a>
+                                            <a class="navbar-item">
+                                                Justice Mckinney
+                                            </a>
+                                            <a class="navbar-item">
+                                                Mackenzie Abe
+                                            </a>
+                                        </div>
+                                    </div>
+                                </a>
+                            </a>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Hero content: will be in the middle -->
+    <div id="Home" class="hero-body">
+        <div class="container has-text-centered my-6 py-6">
+            <h1 class="title is-size-1">
+                Word Raffle
+            </h1>
+        </div>
+    </div>
+    </div>
+    <nav>
+        {{#if loggedIn}}
+        <a href="/dashboard">dashboard</a>
+        <button id="logout" class="btn-no-style">logout</button>
+        {{else}}
+        <a href="/login">login</a>
+        {{/if}}
+    </nav>
+    </header>
+    <main>
+        {{{ body }}}
+    </main>
+    <footer>
+        Thanks for visiting!
+    </footer>
+    </div>
+
+    {{#if loggedIn}}
+    <script src="/javascript/logout.js"></script>
+    {{/if}}
+    </body>
+</section>
+</html>
+
