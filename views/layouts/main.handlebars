@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,37 +8,35 @@
   <title>Word Raffle</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
-  <link rel="stylesheet" href="stylesheet/style.css"> 
+  <link rel="stylesheet" href="stylesheet/style.css">
 </head>
 
-<body>
-   <div class="wrapper">
-  <section class="hero is-success is-fullheight">
-    <!-- Hero head: will stick at the top -->
-    <div class="hero-head">
-      <header class="navbar">
-        <div class="container">
-          <div class="navbar-brand">
-            <span class="navbar-burger" data-target="navbarMenuHeroC">
-              <span></span>
-              <span></span>
-              <span></span>
-            </span>
-          </div>
-          <div id="navbarMenuHeroC" class="navbar-menu p-6">
-            <div class="navbar-end">
+<section class="hero is-primary is-medium">
+  <!-- Hero head: will stick at the top -->
+  <div class="hero-head">
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <span class="navbar-burger" data-target="navbarMenuHeroA">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+        <div id="navbarMenuHeroA" class="navbar-menu p-6">
+          <div class="navbar-end">
+            <a class="navbar-item">
+              <a href="#Home">
+                <box-icon name='home'></box-icon>
+              </a>
               <a class="navbar-item">
-                <a href="#Home">
-                  <box-icon name='home'></box-icon>
-                </a>
-                <a class="navbar-item">
                 <a href="/dashboard">Dashboard</a>
-                </a>
-                <a class="navbar-item"></a>
+              </a>
+              <a class="navbar-item">
                 <a href="#About">About</a>
               </a>
               <a class="navbar-item">
-                <a href="#Login">Login</a>
+                <a href="/login">Login</a>
               </a>
               <a class="navbar-item">
                 <a href="#Music">
@@ -62,87 +61,82 @@
                       </a>
                     </div>
                   </div>
-            </div>
+                </a>
+              </a>
+            </a>
           </div>
         </div>
-        </a>
-
-        </a>
-        </div>
-        </div>
       </div>
-    </header>
-    </div>
+    </nav>
+  </div>
 
-    <!-- Hero content: will be in the middle -->
-    <div id="Home">
-      <div class="hero-body">
-        <div class="container has-text-centered  my-6 py-6">
-          <h1 class="title is-size-1">
-            Word Raffle
-          </h1>
-        </div>
+  <div id="Home">
+    <div class="hero-body">
+      <div class="container has-text-centered  my-6 py-6">
+        <h1 class="title is-size-1">
+          Word Raffle
+        </h1>
       </div>
     </div>
+  </div>
+  <section id="About" class="section is-large section-padding-large has-text-centered">
+    <h2 class="title has-text-centered">About Word Raffle</h2>
+    <h3 class="level-item has-text-centered">
+
+      Welcome to Word Raffle, a forum for music lovers! <br />
+    </h3>
+    <p> See how far your knowledge of song lyrics can take you. </p>
+    <p> Given a random word, think of a line from a song that contains that word.</p>
+    <p> Give other users' posts a heart if you love what they shared. </p>
+    <p>Comment different lyrics with the same word. </p>
+    How many different song lyrics can a single word generate?</p>
+    <p> Login or create an account to be taken to your dashboard, get your random word, and enjoy!</p>
+    <p> Good luck!</p>
   </section>
-    <section id="About" class="section is-large section-padding-large has-text-centered">
-      <h2 class="title has-text-centered">About Word Raffle</h2>
-      <h3 class="level-item has-text-centered">
-  
-        Welcome to Word Raffle, a forum for music lovers! <br />
-      </h3>
-      <p> See how far your knowledge of song lyrics can take you. </p>
-      <p> Given a random word, think of a line from a song that contains that word.</p>
-      <p> Give other users' posts a heart if you love what they shared. </p>
-      <p>Comment different lyrics with the same word. </p>
-      How many different song lyrics can a single word generate?</p>
-      <p> Login or create an account to be taken to your dashboard, get your random word, and enjoy!</p>
-      <p> Good luck!</p>
-    </section>
-    <div>
-      <nav class="level-item has-text-centered">
-        {{#if loggedIn}}
-        <a href="/dashboard">Dashboard</a>
-        <a href="#Home"></a>
-        <box-icon name='home'></box-icon></a>
-        <button class="button is-normal is-responsive m-3" id="logout">Logout</button>
-        {{else}}
-        <a href="/login" class="level-item has-text-centered p-6 m-6 is-size-3">Login</a>
-        {{/if}}
-      </nav>
-    </div>
+  <div>
+    <nav class="level-item has-text-centered">
+      {{#if loggedIn}}
+      <a href="/dashboard">Dashboard</a>
+      <a href="#Home"></a>
+      <box-icon name='home'></box-icon></a>
+      <button class="button is-normal is-responsive m-3" id="logout">Logout</button>
+      {{else}}
+      <a href="#Login" class="level-item has-text-centered p-6 m-6 is-size-3">Login</a>
+      {{/if}}
+    </nav>
+  </div>
+  <main id="Login" class="level-item has-text-centered m-6 p-6">
+    {{{ body }}}
+  </main>
 
-    <main id="Login" class="level-item has-text-centered m-6 p-6">
-        {{{ body }}}
-    </main>
+  <br>
+  <br>
+  <br>
 
-    <br>
-    <br>
-    <br>
-  
-    <section id="Music" class="section m-6 p-6">
-      <h2 class="title level-item has-text-centered m-4 p-4 ">Your Music</h2>
-      <h3 class="subtitle level-item has-text-centered">
-        Upload your music from any of the following platforms:</h3>
-      <li class="level-item has-text-centered">
-        <box-icon type='logo' name='spotify'></box-icon>
-      </li>
-      <li class="level-item has-text-centered">
-        <box-icon type='logo' name='apple'></box-icon>
-      </li>
-      <li class="level-item has-text-centered">
-        <box-icon type='logo' name='amazon'></box-icon>
-      </li>
-    </section>
+  <section id="Music" class="section m-6 p-6">
+    <h2 class="title level-item has-text-centered m-4 p-4 ">Your Music</h2>
+    <h3 class="subtitle level-item has-text-centered">
+      Upload your music from any of the following platforms:</h3>
+    <li class="level-item has-text-centered">
+      <box-icon type='logo' name='spotify'></box-icon>
+    </li>
+    <li class="level-item has-text-centered">
+      <box-icon type='logo' name='apple'></box-icon>
+    </li>
+    <li class="level-item has-text-centered">
+      <box-icon type='logo' name='amazon'></box-icon>
+    </li>
+  </section>
 
-    <footer>
-      Thanks for stopping by!
-    </footer>
+  <footer>
+    Thanks for stopping by!
+  </footer>
 
   {{#if loggedIn}}
   <script src="/javascript/logout.js"></script>
   {{/if}}
 
+</section>
 </body>
- 
+
 </html>
