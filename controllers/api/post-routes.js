@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
       'title',
       'post_lyrics',
       'created_at',
-      //[sequelize.literal('(SELECT COUNT(*) FROM heart WHERE post.id = heart.post_id)'), 'heart_count']
+      [sequelize.literal('(SELECT COUNT(*) FROM heart WHERE post.id = heart.post_id)'), 'heart_count']
     ],
     include: [
       {
