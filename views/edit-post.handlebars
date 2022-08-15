@@ -6,7 +6,7 @@
   <form class="edit-post-form">
     <div>
       <input name="post-title" type="text" value="{{post.title}}" />
-      <input name="post-lyrics" type="text" value="{{post.post_lyrics}}" />
+      {{!-- <input name="post-lyrics" type="text" value="{{post.post_lyrics}}" /> --}}
     </div>
     <div>
       {{post.heart_count}} {{format_plural "point" post.heart_count}} by you on {{format_date post.created_at}}
