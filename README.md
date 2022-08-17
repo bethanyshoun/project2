@@ -40,7 +40,7 @@ Boxicons (for additional node package), JavaScript, Node.js, HTML with Handlebar
 ## Link to Deployed Website
 Deployed with Heroku with JawsDB MYSQL add-on
 
-https://quiet-refuge-91085.herokuapp.com/
+https://calm-plains-32572.herokuapp.com/
 
 ## Contributors
 [Mackenzie Abe](https://github.com/mackenzieabe "Mackenzie's GitHub Repository")
